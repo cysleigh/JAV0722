@@ -1,22 +1,28 @@
 
 <script>
 
-    function AA(){
-    let year = document.getElementById('year123').value;
-
-    if(year % 4 == 0){
-        if(year % 100 == 0){
-            if(year % 400 == 0){
-                document.write("229");
-                }else {document.write("228");
+    function doThing(){
+    let year = document.getElementById('year').value;
+    year = parseInt(year);
+    let isOK;
+    if (year % 4 == 0){
+                if (year % 100 == 0){
+                    if (year % 400 == 0){
+                        isOK = true;
+                    }else{
+                        isOK = false;
                     }
-            }else {document.write("229");
+                }else{
+                    isOK = true;
                 }
-    }else{
-        document.write("228");
-    }
+            }else{
+                isOK = false;
+            }
+            document.getElementById("result").innerHTML =
+                isOK? '閏年' : '平年';
 }
 </script>
 
-<input type="number" id="year123">
-<input type="button" value="=" onclick="AA()">
+Year: <input type="number" id="year">
+<input type="button" value="是否閏年" onclick="doThing()"/>
+<span id="result"></span>
