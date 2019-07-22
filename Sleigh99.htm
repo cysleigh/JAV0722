@@ -1,86 +1,41 @@
 
-<table border="1" width="100%">
-    <tr>
-        <script>
-            for(let j = 2; j<=4 ; j++){
-                document.write("<td>");
+<table border="3" width="100%">
+
+    <script>
+        //彈性邏輯
+        const ROW = 4 ;
+        const START = 2;
+        const COL = 4;
+
+        for(let k = 0 ; k < ROW ; k++){
+        document.write("<tr>");
+            for(let j = START; j < (START + COL) ; j++){
+                let newj = j + k *COL;
+                //基數處理會有問題
+                // if((k + newj)%2 ==0 ){
+                //     document.write("<td bgcolor = 'pink'>");
+                // }else{
+                //     document.write("<td bgcolor = 'Yellow'>");
+                // }
+                
+                //基數處理無問題
+                let ispink;
+                if(COL % 2 ==0){
+                    ispink = (k + newj)%2 == 0; 
+                }else{
+                    ispink = newj % 2 == 0;
+                }
+                document.write("<td bgcolor =" + (ispink? "Pink" : "Yellow") + ">");
+
                 for(let i = 1 ; i <= 9 ; i++){
-                    let r = j * i ; 
-                    document.write(`${j} X ${i} = ${r}<br>`);
+                    let r = newj * i ; 
+                    document.write(`${newj} X ${i} = ${r}<br>`);
                 }
                 document.write("</td>");
             }
-        </script>
-    </tr>
+        document.write("</tr>");
+        }
+        
+    </script>
     
-    <tr>
-        <td>
-            2 X 1 =2 <br>
-            2 X 1 =2 <br>
-            2 X 1 =2 <br>
-            2 X 1 =2 <br>
-            2 X 1 =2 <br>
-            2 X 1 =2 <br>
-            2 X 1 =2 <br>
-            2 X 1 =2 <br>
-            2 X 1 =2 <br>
-        </td>
-        <td>
-            2 X 1 =2 <br>
-            2 X 1 =2 <br>
-            2 X 1 =2 <br>
-            2 X 1 =2 <br>
-            2 X 1 =2 <br>
-            2 X 1 =2 <br>
-            2 X 1 =2 <br>
-            2 X 1 =2 <br>
-            2 X 1 =2 <br>
-        </td>
-        <td>
-            2 X 1 =2 <br>
-            2 X 1 =2 <br>
-            2 X 1 =2 <br>
-            2 X 1 =2 <br>
-            2 X 1 =2 <br>
-            2 X 1 =2 <br>
-            2 X 1 =2 <br>
-            2 X 1 =2 <br>
-            2 X 1 =2 <br>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            2 X 1 =2 <br>
-            2 X 1 =2 <br>
-            2 X 1 =2 <br>
-            2 X 1 =2 <br>
-            2 X 1 =2 <br>
-            2 X 1 =2 <br>
-            2 X 1 =2 <br>
-            2 X 1 =2 <br>
-            2 X 1 =2 <br>
-        </td>
-        <td>
-            2 X 1 =2 <br>
-            2 X 1 =2 <br>
-            2 X 1 =2 <br>
-            2 X 1 =2 <br>
-            2 X 1 =2 <br>
-            2 X 1 =2 <br>
-            2 X 1 =2 <br>
-            2 X 1 =2 <br>
-            2 X 1 =2 <br>
-        </td>
-        <td>
-            2 X 1 =2 <br>
-            2 X 1 =2 <br>
-            2 X 1 =2 <br>
-            2 X 1 =2 <br>
-            2 X 1 =2 <br>
-            2 X 1 =2 <br>
-            2 X 1 =2 <br>
-            2 X 1 =2 <br>
-            2 X 1 =2 <br>
-        </td>
-        </tr>
 </table>
