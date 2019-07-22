@@ -1,0 +1,27 @@
+<script>
+let p1,p2,p3,p4,p5,p6;
+p1=p2=p3=p4=p5=p6=0;
+
+
+for(let i = 1 ; i<=100 ; i++ )
+{
+    let p = parseInt(Math.random()*6 + 1);
+    switch(p){
+        case 1: p1++; break;
+        case 2: p2++; break;
+        case 3: p3++; break;
+        case 4: p4++; break;
+        case 5: p5++; break;
+        case 6: p6++; break;
+        default: break;
+    }
+}
+
+document.write("一點出現"+p1+"次");
+document.write("二點出現"+p2+"次");
+document.write("三點出現"+p3+"次");
+document.write("四點出現"+p4+"次");
+document.write("五點出現"+p5+"次");
+document.write("六點出現"+p6+"次");
+
+</script>
