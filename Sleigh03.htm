@@ -1,0 +1,19 @@
+<!-- //input 會預設text -->
+
+<script>
+    function docall(){
+
+        let x = document.getElementById('x').value;
+        let y = document.getElementById('y').value;
+        let z = parseInt(x) + parseInt(y)
+        //document.write(z);
+        //挖出span值
+        document.getElementById('result').innerHTML = z;
+    }
+</script>
+
+<input type="number" id="x">  
++
+<input type="number" id="y">
+<input type="button" value="=" onclick="docall()">
+<span id="result"></span>

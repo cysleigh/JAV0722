@@ -1,0 +1,32 @@
+<script>
+let var1;
+
+document.write(var1 + ":" + typeof(var1) + "<br>");
+var1=123;
+document.write(var1 + ":" + typeof(var1) + "<br>");
+var1=12.3
+document.write(var1 +":" + typeof(var1)+ "<br>");
+var1='123';
+document.write(var1+":" + typeof(var1)+ "<br>");
+var1=true;
+document.write(var1+":" + typeof(var1)+ "<hr>");
+</script>
+
+<script>
+let a123 = 123;    //[a-zA_Z$_][a_zA-Z0-9$_]  合法變數名稱
+//let @123 = 123;
+//let 3abc = 123;
+let $abc = 123;
+let _abc = 123;
+document.write(a123 + "<hr>");
+</script>
+
+<script>
+const name='Sleigh';
+// name ='SSSS'; 常數不能重複給值xxx
+document.write("My Name is "+ name + ".<br>");
+document.write(`My Name is ${name}.<br>`); //倒引號‵ ` 變數進行置換動作
+let a=10, b=3;
+document.write(`${a} + ${b} = ${a+b}`); //可進行運算
+
+</script>
