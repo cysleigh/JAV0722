@@ -1,15 +1,23 @@
 <script>
-    let p = [0,0,0,0,0,0]; 
+    let p = [0,0,0,0,0,0,0,0,0]; 
     
-    for(let i = 0 ; i<100 ; i++ ){
-        let rand = parseInt(Math.random()*6 + 1);
-        p[rand-1]++;
-    }
-    
-    for(let i=0 ; i < p.length ; i++ ){
-        document.write(`第${i+1}點出現${p[i]}次<br>`);
+    for(let i = 0 ; i<10000000 ; i++ ){
+        let rand = parseInt(Math.random()*9 + 1);
+        switch(rand){ //將7.8.9的骰子加入4.5.6 
+            case 7: 
+            case 8:
+            case 9: 
+            p[rand-4]++; break;
+            
+            default:
+            p[rand-1]++; break;
+
+        }
         
     }
+    for(let i=0 ; i < p.length - 3 ; i++ ){
+        document.write(`第${i+1}點出現${p[i]}次<br>`);   
+    }
 
-    //加上4,5,6機率提高
+    // 加上4,5,6機率提高
 </script>
