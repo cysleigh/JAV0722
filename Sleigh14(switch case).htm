@@ -1,12 +1,22 @@
 <script>
-    let a=10;
+    //switch 全等比對方式  從上到下比對(可用break > 可以沒有 控制多比對)
+    let a = 11,b = 8;
+
     switch(a){
         case 1:
         document.write("A");
         break;
 
+        case b + 2:
+        document.write("B1");
+        //break;
+
         case 10:
-        document.write("B");
+        document.write("B3");
+        break;
+
+        case '10':
+        document.write("B2");
         break;
 
         case 100:
