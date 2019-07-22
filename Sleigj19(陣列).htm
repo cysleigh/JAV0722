@@ -1,11 +1,14 @@
 <script>
     let p = [0,0,0,0,0,0]; 
+    
     for(let i = 0 ; i<100 ; i++ ){
         let rand = parseInt(Math.random()*6 + 1);
-        p[rand]++;
+        p[rand-1]++;
     }
-    for(let i=0 ; i <p.length ;i++ ){
-        document.write(`${i}點出現 次<br>`);
+    
+    for(let i=0 ; i < p.length ; i++ ){
+        document.write(`第${i+1}點出現${p[i]}次<br>`);
+        
     }
 
     //加上4,5,6機率提高
