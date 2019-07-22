@@ -1,16 +1,22 @@
+
 <script>
-    let year = 2400;
+
+    function AA(){
+    let year = document.getElementById('year123').value;
 
     if(year % 4 == 0){
-        
         if(year % 100 == 0){
             if(year % 400 == 0){
                 document.write("229");
-                }else {document.write("228");}
-                
-            }else {document.write("229");}
+                }else {document.write("228");
+                    }
+            }else {document.write("229");
+                }
     }else{
         document.write("228");
     }
-    
+}
 </script>
+
+<input type="number" id="year123">
+<input type="button" value="=" onclick="AA()">
