@@ -1,19 +1,39 @@
+<h1 >質數檢查</h1>
 <table border="3" width="100%">
-
-<script>
-
-for(let i =1 ; i<=100 ; i++){
-    document.write("<tr>");
-    document.write(i);
-    if(i % 10 == 0){
-        
-        document.write("<br>");
-        document.write("</tr>"); 
-    }
-    
-}
+    <script>
+        //控制器
+        let ROW =9; //幾列
+        let COL =15; //幾行
 
 
-</script>
 
+        for(let j=0 ; j < ROW ; j++){
+            document.write("<tr>");
+            for(let i=1 ; i<=COL ; i++){
+                let newi = i + j*COL;  //第一行1-10 (i + 0*10), 第二行 11-20(i + 1*10) 
+                let isprime;
+                let sum = 0;
+                for(let k=1 ; k <= newi ; k++){  
+                    let r= parseFloat(newi % k);
+                    if(newi%k == 0){
+                    sum++;
+                    }  
+                }
+
+                if(sum == 2){   //只有1,本身能整除的即為質數
+                    document.write("<td bgcolor = 'yellow'>");  
+                }else{
+                    document.write("<td>");
+                }
+
+                //document.write("<td>");
+                document.write(newi);
+                if(newi % 10 == 0){
+                    document.write("<br>");
+                }
+                document.write("</td>");
+            }       
+            document.write("</tr>");
+        }
+    </script>
 </table>
