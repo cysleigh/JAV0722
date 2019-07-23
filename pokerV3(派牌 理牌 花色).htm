@@ -1,0 +1,39 @@
+<script>
+    let poker = [];
+    for(let i=0 ; i<52 ;i++) poker[i] = i;
+    for(let i=poker.length-1 ; i>0; i--){
+        let rand = parseInt(Math.random()*(i+1));
+        // i <==>rand 數值交換
+        [poker[i], poker[rand]] = [poker[rand], poker[i]];
+    
+    }
+    // for(let i in poker){
+    //     document.write(poker[i] + "<br>");
+    // }
+    //document.write("<hr>");
+    let palyers = [[],[],[],[]];
+    for(let i=0 ; i<poker.length ; i++){
+        palyers[i%4].push(poker[i]);
+    }
+    
+</script>
+<table border="1" width="100%">
+    <script>
+            let suits = ['&spades;','&hearts;','&diams;','&clubs;'];
+            let nums = ['A','2','3','4','5',6,7,8,9,10,'J','Q','K'];
+            for(let player of palyers){
+                player.sort(function(a,b){return a-b;}); //sort 分類 function(a, b){return a - b} 比大小
+                document.write("<tr>");
+                for(let card of player){
+                    if(parseInt(card/13)==1 || parseInt(card/13)==3){
+                        document.write("<td style='color:red'>");
+                    }else{
+                        document.write("<td style='color:black'>");
+                    }
+                    document.write(suits[parseInt(card/13)] + nums[card%13]);
+                    document.write("</td>");
+                }
+                document.write("</tr>");
+            }
+    </script>
+</table>
