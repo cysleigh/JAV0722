@@ -4,7 +4,7 @@ function sayYA5(welcome, ...names){   //不訂個數參數傳遞
 }
 //[a-zA-Z$_]
 function checkTWID(id){
-   //正規表適法
+   //正規表示法
    let ret =false;
    let regex = /^[A-Z][12][0-9]{8}$/;
    if(id.match(regex) != null){
