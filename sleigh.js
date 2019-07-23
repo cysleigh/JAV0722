@@ -5,10 +5,10 @@ function sayYA5(welcome, ...names){   //不訂個數參數傳遞
 //[a-zA-Z$_]
 function checkTWID(id){
    //正規表示法
-   let ret =false;
-   let regex = /^[A-Z][12][0-9]{8}$/;
-   let letters='ABCDEFGHJKLMNPQRSTUVXYWZIO' ;
-   if(id.match(regex) != null){
+    let ret =false;
+    let regex = /^[A-Z][12][0-9]{8}$/;
+    let letters='ABCDEFGHJKLMNPQRSTUVXYWZIO' ;
+    if(id.match(regex) != null){
     let c1=id.charAt(0) ; 
     let n12= letters.indexOf(c1) + 10 ;  
     let n1= parseInt(n12 / 10) ;
@@ -50,5 +50,6 @@ function creatTWIDV3(gender){
 }
 
 function creatTWIDall(area , gender){
-//
+//都要 A123456789
+
 }
