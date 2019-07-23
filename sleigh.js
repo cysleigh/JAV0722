@@ -36,3 +36,19 @@ function checkCEL(numb){
     }
     return ret;
 }
+
+function creatTWID(){
+    //身分證隨機產生
+}
+
+function creatTWIDV2(area){
+    //可指定地區
+}
+
+function creatTWIDV3(gender){
+    //可隨機產生男生或女生
+}
+
+function creatTWIDall(area , gender){
+//
+}
