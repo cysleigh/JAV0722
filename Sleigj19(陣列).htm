@@ -2,17 +2,17 @@
     let p = [0,0,0,0,0,0,0,0,0]; 
     
     for(let i = 0 ; i<10000000 ; i++ ){
-        let rand = parseInt(Math.random()*9 + 1);
-        switch(rand){ //將7.8.9的骰子加入4.5.6 
-            case 7: 
-            case 8:
-            case 9: 
-            p[rand-4]++; break;
+        let rand = parseInt(Math.random()*9);
+        // switch(rand){ //將7.8.9的骰子加入4.5.6 
+        //     case 7: 
+        //     case 8:
+        //     case 9: 
+        //     p[rand-3]++; break;
             
-            default:
-            p[rand-1]++; break;
-        }
-        
+        //     default:
+        //     p[rand]++; break;
+        // }
+        p[rand>=6?rand-3:rand]++; //RANDOM裡面直接做判斷
     }
     for(let i=0 ; i < p.length - 3 ; i++ ){
         document.write(`第${i+1}點出現${p[i]}次<br>`);   

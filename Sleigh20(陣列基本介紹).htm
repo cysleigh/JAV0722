@@ -1,0 +1,42 @@
+<script>
+    // instanceof =>查看是否為物件實體
+    //鎮列為指向記憶體位置
+    let a =  [];
+    let b = [1,2,3,4]; //Object
+    let c = new Array(); //Object
+    let d = new Array(7); //Object 長度7 
+    let e = new Array(1,2,3,4); //Object 長度4
+    document.write(d.length + "<br>");
+
+    a.push(1); a.push(12); a.push(123);  //push放入值
+    document.write(a.length + "<br>");
+
+    for(let i=0; i < a.length ;i++){     //a[i] 列出陣列位置值
+        document.write(a[i] + "<br>");
+    }
+    document.write("<hr>");
+    
+    a[7] = 2000;
+    document.write(a.length + "<br>");
+    document.write("<hr>");
+
+    for(let i=0; i < a.length ;i++){     //無給值會列出undefined
+        document.write(a[i] + "<br>");
+    }
+    document.write("<hr>");
+
+    for(let i in a){     //in >列出有值(i)的位置
+        document.write(a[i]+"<br>");
+    }
+    document.write("<hr>");
+
+    document.write(a.toString()); // 全部列出來
+    document.write("<hr>");
+
+    document.write(a.pop() + "<br>"); //先進後出 pop 長度會減少; Delete 長度不會減少
+    document.write("<hr>");
+    for(let i in a){     //in >列出有值(i)的位置
+        document.write(a[i]+"<br>");
+    }
+
+</script>
