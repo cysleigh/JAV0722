@@ -49,7 +49,21 @@ function creatTWIDV3(gender){
     //可隨機產生男生或女生
 }
 
-function creatTWIDall(area , gender){
+function creatTWIDall(area,gender){
 //都要 A123456789
+    let twID = [];
+    twID[0] = area;
+    twID[1] = gender;
+    let record ;
+    for(let i=2 ; i< 10 ; i++){
+        twID[i] = parseInt(Math.random()*10);
+    }
+    let isReal = checkTWID(twID.join(''));
+    if (!isReal) {
+        creatTWIDall(area,gender);
+    } else {
+        record = twID.join('') + "<br>";
+        document.getElementById("record").innerHTML = record;
+    }
 
 }
