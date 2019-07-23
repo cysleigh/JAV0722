@@ -1,15 +1,15 @@
 <script>
 function sum(){
-    let n = document.getElementById('x').Value;
+    let n = parseInt(document.getElementById("n").value);
     let sum = 0;
     let i=1;
-    while(i<=x){
+    while(i<=n){
         sum += i++;
     }
     document.getElementById('result').innerHTML = n;
 }
 </script>
 1+2+3+......+
-<input type="number" id="x">
+<input type="number" id="n">
 <input type="button" value="=" onclick="sum()">
 <span id="result"></span>
