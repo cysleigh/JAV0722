@@ -1,0 +1,24 @@
+<script>
+    let poker = [];
+    let rand,isRepeat;
+    for(let i=0 ; i<52 ; i++){
+        do{
+            rand = parseInt(Math.random()*52); //0~51 只單做RANDOM會有重複
+            //進行不重複檢查
+            isRepeat = false;
+            for(let j=0 ; j < i ;j++){
+                if(rand == poker[j]){
+                    //重複就跳出
+                    isRepeat = true;
+                    break;
+                }
+            }
+        }while(isRepeat);
+        
+        poker[i] = rand;
+    }
+    for(let i in poker){
+        document.write(poker[i] + "<br>");
+    }
+    
+    </script>

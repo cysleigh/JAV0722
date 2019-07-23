@@ -1,7 +1,7 @@
 <script>
     let poker = [];
     for(let i=0 ; i<52 ; i++){
-        let rand = parseInt(Math.random()*52); //只單做RANDOM會有重複
+        let rand = parseInt(Math.random()*52); //0~51 只單做RANDOM會有重複
         //進行不重複檢查
         let isRepeat = false;
         for(let j=0 ; j < i ;j++){
