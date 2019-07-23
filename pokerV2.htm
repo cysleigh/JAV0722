@@ -7,16 +7,15 @@
             //進行不重複檢查
             isRepeat = false;
             for(let j=0 ; j < i ;j++){
-                if(rand == poker[j]){
-                    //重複就跳出
+                if(rand == poker[j]){//重複就跳出
                     isRepeat = true;
                     break;
                 }
             }
         }while(isRepeat);
-        
         poker[i] = rand;
     }
+    
     for(let i in poker){
         document.write(poker[i] + "<br>");
     }

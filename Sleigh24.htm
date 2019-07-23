@@ -1,0 +1,20 @@
+<script>
+
+    let a =[1,2,'III',3,4,'sleigh',5,'CY',6];
+
+
+    for(let i=0 ; i<a.length ; i++){
+        document.write(a[i]+"<br>");
+    }
+    document.write("<hr>");
+
+    for(let i in a){             //空掉的不會顯示(undefined)
+        document.write(a[i]," ");
+    }
+    document.write("<hr>");
+
+    for(let i of a){            //of用法
+        document.write(i," ");
+    }
+
+</script>
