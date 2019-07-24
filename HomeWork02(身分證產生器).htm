@@ -1,5 +1,18 @@
 <script src="sleigh.js"></script>
+<script>
+    function checkIDA(){
+        let check;
+        let idnputid = document.getElementById("inputid").value;
+        if(checkTWID(idnputid)){
+            document.getElementById("check").innerHTML = "驗證成功";
+        }else{
+            document.getElementById("check").innerHTML = "驗證失敗";
+        }
+    }
+</script>
+
 <h1>身分證隨機產生器</h1>
+<h2>指定地區與性別</h2>
 <div border="3">性別 :
     <select id="gender">
         <option value="1">男</option>
@@ -36,11 +49,20 @@
         <option value="Z">連江縣</option>
     </select>
 </div>
-
-<input type="button" value="產出" onclick="creatTWIDall(area.value,gender.value);">
+<input type="button" value="產出指定地區/性別" onclick="creatTWIDall(area.value,gender.value);">
+<input type="button" value="產出指定男/女。地區隨機" onclick="creatTWIDV3(gender.value);">
+<input type="button" value="產出指定地區。性別隨機" onclick="creatTWIDV2(area.value);">
+<input type="button" value="產出隨機地區/性別" onclick="creatTWID();">
 <span id="id"></span>
 <div id="record"></div>
 <hr>
+
+<div>
+    身分證字號: <input  id="inputid" type="text">
+    <input type="button" value="驗證" onclick="checkIDA();">
+    <div id="check"></div>
+</div>
+
 
 
  

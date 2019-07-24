@@ -6,6 +6,7 @@ function sayYA5(welcome, ...names){   //不訂個數參數傳遞
 function checkTWID(id){
    //正規表示法
     let ret =false;
+    let record5 ;
     let regex = /^[A-Z][12][0-9]{8}$/;
     let letters='ABCDEFGHJKLMNPQRSTUVXYWZIO' ;
     if(id.match(regex) != null){
@@ -26,6 +27,7 @@ function checkTWID(id){
     ret = sum %10 == 0;
    }
    return ret;
+   document.getElementById("record5").innerHTML = record5;
 }
 
 function checkCEL(numb){
@@ -39,14 +41,25 @@ function checkCEL(numb){
 
 function creatTWID(){
     //身分證隨機產生
+    let gender = [1,2];
+    let area = ['A','B','C','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
+    let randgender = parseInt(Math.random()*2);
+    let randarea = parseInt(Math.random()*26);
+    creatTWIDall(area[randarea],gender[randgender]);
 }
 
 function creatTWIDV2(area){
     //可指定地區
+    let gender = [1,2];
+    let rand = parseInt(Math.random()*2);
+    creatTWIDall(area,gender[rand]);
 }
 
 function creatTWIDV3(gender){
     //可隨機產生男生或女生
+    let area = ['A','B','C','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
+    let rand = parseInt(Math.random()*26);
+    creatTWIDall(area[rand],gender);
 }
 
 function creatTWIDall(area,gender){
@@ -56,9 +69,9 @@ function creatTWIDall(area,gender){
     twID[1] = gender;
     let record ;
     for(let i=2 ; i< 10 ; i++){
-        twID[i] = parseInt(Math.random()*10);
+        twID[i] = parseInt(Math.random()*10);  //隨機產生後8碼;
     }
-    let isReal = checkTWID(twID.join(''));
+    let isReal = checkTWID(twID.join(''));     //把陣列列出
     if (!isReal) {
         creatTWIDall(area,gender);
     } else {
