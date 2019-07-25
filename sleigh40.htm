@@ -1,0 +1,26 @@
+<script>
+    //定義
+let person = {
+    name: 'sleigh',
+    age: '20',
+    adress: '',
+    getInfo: function(){
+        return this.name + ":" + this.age;
+    }
+};
+
+//物件屬性
+let peter = {
+    name: 'peter',
+    age: '18'
+};
+
+let tony ={
+    name: 'tony',
+    age: '22'
+};
+
+//可用定義呼叫物件 印出屬性
+document.write(person.getInfo.call(tony));
+
+</script>

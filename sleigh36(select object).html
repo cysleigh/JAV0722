@@ -1,0 +1,19 @@
+<script>
+    function changeAlign(){
+        let mytext = document.getElementById('mytext');
+        let textAlign = document.getElementById('textAlign');
+        mytext.style['textAlign'] = textAlign.value;
+        //mytext為物件
+        //document.write(typeof mytext);
+        // for(let key in mytext.style){
+        //     document.write(key + "=>" + mytext.style[key] +"<br>");
+        // }
+    }
+</script>
+<div id="mytext" style="text-align: ">Hello! World</div>
+<hr>
+<select id="textAlign" onchange="changeAlign()">
+    <option value="left">Left</option>
+    <option value="center">Center</option>
+    <option value="Right">Right</option>
+</select>

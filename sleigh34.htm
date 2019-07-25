@@ -1,0 +1,18 @@
+<script>
+//陣列能為a[0] 或 a['字串']
+let a = [];
+a['name'] = 'sleigh';
+a['age'] = 18;
+document.write(a['name'] + ":" + a['age'] + "<br>");
+a.push(123);a.push(12);a.push(1);
+for(let i in a){
+document.write(i + "=>" + a[i] + "<br>");
+}
+//陣列混和呼叫function
+a['eat'] = function(){
+    document.write(this.name + " eat something.<hr>");
+}
+a.eat();
+
+
+</script>

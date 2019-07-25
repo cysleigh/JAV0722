@@ -1,0 +1,63 @@
+<h1 id='head'></h1>
+<hr>
+<input type="button" value="clear" onclick="canvasclear()">
+<input type="button" value=" <- " onclick="moveLeft()">
+<input type="button" value=" -> " onclick="moveRight()">
+<hr>
+<canvas id='canvas' width='480' height='320' 
+        style="border: 1px solid black"></canvas> 
+<script>
+    head.innerHTML = 'Sleigh BB';
+    let ctx = canvas.getContext('2d'); //渲染
+    let isDrag = false;
+
+    ctx.strokeStyle = 'rgb(0,0,255)';
+    // ctx.beginPath();
+    // ctx.moveTo(10,10); //起始點
+    // ctx.lineTo(100,100); //終點
+    // ctx.stroke(); //畫線
+
+    canvas.onmousedown = function(e){
+        isDrag = true;
+        ctx.beginPath();
+        ctx.moveTo(e.offsetX ,e.offsetY);
+    }
+
+    canvas.onmouseup = function(){
+        isDrag = false;
+        
+    }
+
+    canvas.onmousemove = function(e){
+        if(!isDrag) return;
+        console.log('drag:' + e.offsetX + "x" + e.offsetY + "y");
+        ctx.lineTo(e.offsetX,e.offsetY);
+        ctx.stroke();
+    }
+    //載入圖片步驟
+    let ball = new Image();
+    let ballX =200;
+    ball.src = 'ball.png';
+    ball.onload = function(){
+        ctx.drawImage(ball,ballX,100);
+    }
+
+    function moveLeft(){
+        ballX -= 8 ;
+        canvasclear()
+        ctx.drawImage(ball,ballX,100);
+    }
+
+    function moveRight(){
+        ballX += 8 ;
+        canvasclear()
+        ctx.drawImage(ball,ballX,100);
+    }
+
+    function canvasclear(){
+        ctx.clearRect(0,0,480,320);
+    }
+
+    
+
+</script>

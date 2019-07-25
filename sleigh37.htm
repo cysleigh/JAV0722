@@ -1,0 +1,41 @@
+<script>
+//body 創建方式 //js創立網頁方式
+let body = document.createElement('body'); 
+document.body = body ; //指定網頁新創boDY
+
+let header =document.createElement('h1');
+let h1text =document.createTextNode("sleigh BIGBIG"); //文字節點
+header.appendChild(h1text);
+//header.innerHTML = 'sleigh big cc';
+document.body.appendChild(header);  //body > H1 架構式寫法  子節點
+
+let hr = document.createElement('hr'); //header/body > hr 
+//header.appendChild(hr);
+document.body.appendChild(hr);
+//新增 移除 複製
+let ul = document.createElement('ul');
+document.body.appendChild(ul);
+
+let ritem;
+for(let i=0; i<4 ; i++){
+    let item = document.createElement('li');
+    item.innerHTML = `第${i+1} Item`;
+    ul.appendChild(item);
+    if(i==2) ritem =item;
+}
+ul.removeChild(ritem);
+
+let hr2 = hr.cloneNode();
+document.body.appendChild(hr2);
+
+let ul2 = ul.cloneNode();
+document.body.appendChild(ul2);
+
+for(let i=0; i<4 ; i++){
+    let item = document.createElement('li');
+    item.innerHTML = `第${i+1} Item`;
+    ul2.appendChild(item);
+    
+}
+
+</script>

@@ -11,7 +11,7 @@ bike.downSpeed= function(){
     this.speed = this.speed < 1 ? 0 : this.speed*0.7;
 }
 
-bike.upSpeed();bike.upSpeed();bike.upSpeed();bike.upSpeed();bike.upSpeed();bike.upSpeed();
+bike.upSpeed();bike.upSpeed();bike.upSpeed();
 bike.downSpeed();
 document.write(bike.speed + "<hr>");
 
@@ -25,7 +25,42 @@ let bike2 = {
     downSpeed : function(){
         this.speed = this.speed < 1 ? 0 : this.speed*this.gear*0.7;
     }
-
 }; 
+
+document.write(bike2.speed + "<br>");
+bike2.upSpeed();bike2.upSpeed();
+document.write(bike2.speed + "<br>");
+document.write("<hr>");
+
+bike2['upSpeed']();   //使用陣列呼叫functions，function可以為一個變數 
+document.write(bike2.speed + "<br>");
+document.write("<hr>");
+
+let method = 'upSpeed';
+bike2[method]();
+document.write(bike2.speed + "<br>");
+document.write("<hr>");
+
+for(let key in bike2){ //尋訪裡面的function
+    document.write(key + "=>" + bike2[key]+"<br>");
+}
+document.write("<hr>");
+
+//認識物件內容
+for(let key in document){ //尋訪裡面的function
+    document.write(key + "=>" + document[key]+"<br>");
+}
+document.write("<hr>");
+
+for(let key in window){ //尋訪裡面的function
+    document.write(key + "=>" + window[key]+"<br>");
+}
+
+
+
+
+
+
+
 
 </script>
