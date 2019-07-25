@@ -1,0 +1,47 @@
+//HomeWork LAB 條件要下(限制幾碼 不能777,999)
+
+<script src="sleigh.js"></script>
+<script>
+        let d = 3;
+        let answer = createAnswer(d);
+        //console.log(answer);
+        let logtext = '';
+        let times = 0;
+        function doGuess(){
+            times++;
+            let guess = document.getElementById('input').value;
+            let result = checkAB(answer, guess);
+            alert(`${guess} => ${result}`);
+            logtext += `${times} : ${guess} => ${result}<br>`;
+            document.getElementById('log').innerHTML = logtext;
+            document.getElementById('input').value = '';
+            if (result == `${d}A0B`){
+                alert('恭喜老爺, 賀喜夫人');
+                replay();
+            }else if(times == 3){
+                alert(`Loser: ${answer}`);
+                replay();
+            }
+            document.getElementById('input').focus();
+        }
+        function replay(){
+            answer = createAnswer(d);
+            logtext = '';
+            times = 0;
+            document.getElementById('log').innerHTML = '';
+            document.getElementById('input').value = '';
+            document.getElementById('input').focus();
+        }
+    </script>
+    <h1>Guess Number Game</h1>
+    <hr>
+    <input type="number" id='input'/>
+    <input type="button" value="Guess" onclick="doGuess()"/>
+    <input type="button" value="replay" onclick="replay()" />
+    <select>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+    </select>
+    <hr>
+    <div id="log"></div>

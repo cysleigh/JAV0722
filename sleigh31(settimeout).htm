@@ -1,0 +1,23 @@
+<script>
+    let timeout = null; //給預設值
+    function test1(){
+        timeout =  setTimeout(test2,3*1000); // 時間在後面1/1000秒
+    
+    }
+    function test2(){
+        document.getElementById('here').innerHTML = 
+            parseInt(Math.random()*49+1);
+    }
+
+    function test3(){
+        if(timeout != null){
+            clearTimeout(timeout);
+            document.getElementById('here').innerHTML ='nothing';
+        }
+    }
+
+</script>
+<input type="button" value="click1" onclick="test1()" />
+<input type="button" value="click2" onclick="test3()" />
+<hr>
+<div id='here'></div>
