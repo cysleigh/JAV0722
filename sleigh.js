@@ -122,3 +122,26 @@ function clone(source){
 
     return target;
 }
+
+Date.prototype.getTWYear = function(){
+    
+    return this.getFullYear() - 1911;
+}
+
+Date.prototype.getTWMonth = function(){
+
+    return this.getMonth() + 1 ;
+}
+
+Date.prototype.getTWday = function(){
+    let w = this.getDay();
+    let ws = ['星期日','星期一','星期二','星期三','星期四','星期五','星期六'];
+
+    return ws[w];
+}
+
+class sleigh{   //分類觀念
+    static m1(){
+
+    }
+}

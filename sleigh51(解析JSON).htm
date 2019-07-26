@@ -1,0 +1,38 @@
+<script>
+let strJSON = 
+`
+[
+{
+    "traceCode": "1601001734",
+    "producer": "曾○花",
+    "address": "花蓮縣吉安鄉",
+    "mark": "",
+    "url": "",
+    "description": "本身務農已超過20年，之前從事醫護人員工作，退休後專心從農，目前種植龍鬚菜0.25公頃，透過農會共同運銷系統，將安心又健康的蔬菜供消費者選用。\r\n",
+    "status": "通過",
+    "modifyDate": "2019/07/25"
+  },
+  {
+    "traceCode": "1501002056",
+    "producer": "劉○坤",
+    "address": "臺東縣池上鄉",
+    "mark": "",
+    "url": "",
+    "description": "從小家裡就務農，\n跟稻田有很深的情感，一輩子都在田裡打滾，立志要做一位種出好米的農夫，用心對待我的稻田，希望吃到我種出來米的人，也能感受到我的用心與認真。",
+    "status": "通過",
+    "modifyDate": "2019/07/25"
+  }
+]
+`;
+strJSON = strJSON.replace(/(\r\n)|\n/g,'');
+let data = JSON.parse(strJSON);
+//document.write(typeof data);
+document.write(data.length + "<hr>");
+
+for(let row of data){
+    document.write(row.producer + ":" + row.address + "<br>");
+}
+
+
+
+</script>

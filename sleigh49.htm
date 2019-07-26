@@ -1,0 +1,14 @@
+<script src="sleigh.js"></script>
+<meta charset="UTF-8">
+
+<script>
+
+setInterval(() => {
+    let d = new Date();
+    let dstring = d.getTWYear() + "-" + d.getTWMonth() + "-" + d.getDate() +
+                "今天:" + d.getTWday() + d.getHours() + d.getMinutes() + d.getSeconds();
+    //document.getElementById("now").innerHTML = d;
+    now.innerHTML = dstring ;
+},1*1000);
+</script>
+目前日期時間: <span id="now"></span>

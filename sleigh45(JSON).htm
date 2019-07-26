@@ -1,0 +1,35 @@
+<script src="sleigh.js"></script>
+<script>
+let person = {
+    name: "sleigh",
+    age: 18,
+    weight: 100,
+    bike: [{
+        brand: 'giant',
+        speed: 10
+    },{
+        brand: 'Ubike',
+        speed: 20
+    }],
+    eat: function(){
+        document.write(this.name + ":eating....");
+    }
+}
+
+let strJSON = JSON.stringify(person); //字串化
+document.write(strJSON);
+document.write("<hr>");
+
+let person2 = JSON.parse(strJSON)
+for(let key in person2){
+    document.write(key +":"+ person2[key]+"<br>");
+}
+document.write("<hr>");
+
+person.eat.call(person2);
+document.write("<hr>");
+
+let person3 = clone(person);
+person3.eat();
+
+</script>
