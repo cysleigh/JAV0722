@@ -1,0 +1,39 @@
+<script>
+//自己有定義 以自己為主， 若無定義 已prototype為主
+
+let bike = function(name, speed){
+    this.name = name; //寫了this 代表變成物件 (建構式 物件初始化)
+    this.speed = speed;
+    // this.chSpeed = function(speed){
+    //     document.write("debug4 here <br>");
+    // }
+}
+
+bike.chSpeed = function(speed){
+    document.write("debug3");
+    this.speed = speed;
+}
+
+bike.prototype.chSpeed = function(speed){
+    document.write("debug");
+}
+
+let b1 = new bike('sleigh',12);
+b1.chSpeed = function(speed){
+    document.write("debug2");
+}
+
+for(let key in b1){
+    document.write(key + ":" + b1[key] + "<br>");
+}
+document.write("<hr>");
+
+b1.chSpeed(24);
+for(let key in b1){
+    document.write(key + ":" + b1[key] + "<br>");
+}
+document.write("<hr>");
+let b2 = new bike('sleigh',12);
+b2.chSpeed(23);
+
+</script>
