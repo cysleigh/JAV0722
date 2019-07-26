@@ -1,0 +1,79 @@
+<!-- //製作隨機產生磚塊打掉他 -->
+<!-- 麻仔台 -->
+<style>
+    canvas { background: #eee; }
+</style>
+<script src="sleigh.js"></script>
+<h1 id='head'></h1>
+<hr>
+<canvas id='canvas' width='480' height='320' 
+        style="border: 1px solid black"></canvas> 
+<script>
+    head.innerHTML = 'Sleigh BB';
+    let ctx = canvas.getContext('2d'); //渲染
+    let ball = new Image();
+    let bg = new Image();
+    bg.src = 'bg.png';
+    let ballX = 0 , ballY = 0;
+    let barX =0 , barY = 280;
+    let mircoX =0,mircoY =0;
+    let isblock =true ;
+    let x = canvas.width/2;
+    let y = canvas.height-30;
+    let dx = 2;
+    let dy = -2;
+    let chY = parseInt(Math.random()*160);
+    let chX = parseInt(Math.random()*480);
+    document.addEventListener("mousemove", mouseMoveHandler, false); //滑鼠間聽
+
+    bg.onload = function(){
+        ctx.drawImage(bg,0,0);
+    }
+
+    function mouseMoveHandler(e) {                  //滑鼠移動控制
+        let barmove = e.clientX - canvas.offsetLeft;
+        if(barmove > 0 && barmove < canvas.width) {
+            barX = barmove - barX/15;
+        }
+    }
+
+    function drawmirco(){
+            ctx.beginPath();
+            ctx.rect(chX, chY, 50, 20); // 繪製長方形磚塊
+            ctx.fillStyle = "#00000"; 
+            ctx.fill(); // 填滿中心
+            ctx.closePath();
+            isblock =false;
+    }
+    
+    function pushball() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height); // 清除畫面
+        let ball = new Image();
+        ball.src="ball1.png";
+        let bar = new Image();
+        bar.src = "ball2.png";
+        let chX,chY;
+        ctx.drawImage(bg,0,0);
+        drawmirco();
+
+        
+        ball.onload = function(){
+            ctx.drawImage(ball,ballX,ballY);
+        }
+        bar.onload = function(){
+            ctx.drawImage(bar,barX,barY);
+        }
+        
+        if(ballX < 0 || ballX+48 >canvas.width){ //判斷是否碰撞到左右的牆壁
+            dx = -dx;
+        }
+        if(ballY < 0 || ballY+48 >canvas.height){ //判斷是否碰撞到上下的牆壁
+            dy = -dy;
+        }
+
+        ballX +=dx;
+        ballY +=dy; //偵測寫在球身上
+    }
+    setInterval(pushball, 17);
+
+</script>
