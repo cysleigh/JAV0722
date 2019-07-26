@@ -1,3 +1,4 @@
+<script src="sleigh.js"></script>
 <h1 id='head'></h1>
 <hr>
 <input type="button" value="clear" onclick="canvasclear()">
@@ -24,8 +25,7 @@
     }
 
     canvas.onmouseup = function(){
-        isDrag = false;
-        
+        isDrag = false; 
     }
 
     canvas.onmousemove = function(e){
@@ -57,7 +57,5 @@
     function canvasclear(){
         ctx.clearRect(0,0,480,320);
     }
-
-    
 
 </script>
