@@ -1,0 +1,17 @@
+<script>
+    //function也可以是物件
+let f = function(){
+    this.a=1;
+    this.b=2;
+};
+
+let obj = new f();
+document.write(typeof obj + "<br>");
+document.write("a=" + obj.a + ":" + "b=" + obj.b + "<br>");
+
+f.prototype.b = 3; //延伸修改屬性
+f.prototype.c = 4; //延伸屬性擴充
+document.write(obj.a + "<br>"); //1
+document.write(obj.b + "<br>"); //2
+document.write(obj.c + "<br>"); //4
+</script>
