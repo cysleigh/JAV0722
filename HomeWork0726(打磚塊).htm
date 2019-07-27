@@ -43,15 +43,15 @@
             ctx.fillStyle = "#00000"; 
             ctx.fill(); 
             ctx.closePath();
-            isblock =false;
+            //isblock =false;
             //return chX,chY;
     }
 
     function blockmico(){
         
-        if(ballX+24 <= chX+25 && ballX+24 >= chX-25 && ballY+24 <= chY+10 && ballY+24 >= chY-10)
+        if(ballX <= chX+30 && ballX >= chX-30 && ballY <= chY+15 && ballY >= chY-15)
         {
-            alert("win game");
+            alert("打中了");
             document.location.reload();
             clearInterval(interval); 
         }
@@ -66,7 +66,7 @@
         bar.src = "ball2.png";
         ctx.drawImage(bg,0,0);
         drawmirco();
-        blockmico();
+        //blockmico();
 
         
         ball.onload = function(){
@@ -87,7 +87,7 @@
             if(ballX+48 >barX-24 && ballX-48 < barX+24){
                 dy = -dy;
             }else{
-                alert("game over");
+                alert("遊戲結束");
                 document.location.reload();
                 clearInterval(interval); 
             }
@@ -96,6 +96,7 @@
 
         ballX +=dx;
         ballY +=dy; //偵測寫在球身上
+        blockmico();
     }
     let interval = setInterval(pushball, 17);
 
