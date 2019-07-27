@@ -14,36 +14,48 @@
     let ball = new Image();
     let bg = new Image();
     bg.src = 'bg.png';
-    let ballX = 0 , ballY = 0;
-    let barX =0 , barY = 280;
+    let ballX = 192 , ballY = 160;
+    let barX =0 , barY = 300;
     let mircoX =0,mircoY =0;
     let isblock =true ;
     let x = canvas.width/2;
     let y = canvas.height-30;
     let dx = 2;
     let dy = -2;
-    let chY = parseInt(Math.random()*160);
-    let chX = parseInt(Math.random()*480);
+    let chY = parseInt(Math.random()*160); //上下位置
+    let chX = parseInt(Math.random()*420 +20); //左右位置
     document.addEventListener("mousemove", mouseMoveHandler, false); //滑鼠間聽
 
     bg.onload = function(){
         ctx.drawImage(bg,0,0);
     }
 
-    function mouseMoveHandler(e) {                  //滑鼠移動控制
+    function mouseMoveHandler(e) {      //滑鼠移動控制
         let barmove = e.clientX - canvas.offsetLeft;
         if(barmove > 0 && barmove < canvas.width) {
             barX = barmove - barX/15;
         }
     }
 
-    function drawmirco(){
+    function drawmirco(){   //畫出一個磚塊
             ctx.beginPath();
-            ctx.rect(chX, chY, 50, 20); // 繪製長方形磚塊
+            ctx.rect(chX, chY, 50, 20); 
             ctx.fillStyle = "#00000"; 
-            ctx.fill(); // 填滿中心
+            ctx.fill(); 
             ctx.closePath();
             isblock =false;
+            //return chX,chY;
+    }
+
+    function blockmico(){
+        
+        if(ballX+24 <= chX+25 && ballX+24 >= chX-25 && ballY+24 <= chY+10 && ballY+24 >= chY-10)
+        {
+            alert("win game");
+            document.location.reload();
+            clearInterval(interval); 
+        }
+
     }
     
     function pushball() {
@@ -52,9 +64,9 @@
         ball.src="ball1.png";
         let bar = new Image();
         bar.src = "ball2.png";
-        let chX,chY;
         ctx.drawImage(bg,0,0);
         drawmirco();
+        blockmico();
 
         
         ball.onload = function(){
@@ -67,13 +79,24 @@
         if(ballX < 0 || ballX+48 >canvas.width){ //判斷是否碰撞到左右的牆壁
             dx = -dx;
         }
-        if(ballY < 0 || ballY+48 >canvas.height){ //判斷是否碰撞到上下的牆壁
+
+        if(ballY < 0){ //判斷球是否碰撞到上的牆壁
             dy = -dy;
+        }else if(ballY+48 > canvas.height){ //判斷球是否超出下界(320)，若有碰到BAR即反彈
+            
+            if(ballX+48 >barX-24 && ballX-48 < barX+24){
+                dy = -dy;
+            }else{
+                alert("game over");
+                document.location.reload();
+                clearInterval(interval); 
+            }
         }
+        
 
         ballX +=dx;
         ballY +=dy; //偵測寫在球身上
     }
-    setInterval(pushball, 17);
+    let interval = setInterval(pushball, 17);
 
 </script>
